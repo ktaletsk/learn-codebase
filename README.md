@@ -196,6 +196,13 @@ Built on research from:
 - Zone of Proximal Development (Vygotsky)
 - Patterns from [learn-faster-kit](https://github.com/hluaguo/learn-faster-kit) and [fluent](https://github.com/m98/fluent)
 
+## Compatibility
+
+This skill uses the open [Agent Skills](https://agentskills.io) standard and should work with:
+- Claude Code (`~/.claude/skills/`)
+- Cursor (`.cursor/skills/`)
+- VS Code, GitHub Copilot, and other compatible agents
+
 ## License
 
 MIT
