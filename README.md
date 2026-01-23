@@ -26,9 +26,9 @@ This skill flips the AI interaction model:
 
 ## The Problem
 
-You know that feeling after heavy AI-assisted coding — like swimming with fins, 
-then taking them off? The skill atrophy is real. Research backs this up: a 2025 
-study found developers using AI on familiar codebases were 19% *slower* than 
+You know that feeling after heavy AI-assisted coding — like swimming with fins,
+then taking them off? The skill atrophy is real. Research backs this up: a 2025
+study found developers using AI on familiar codebases were 19% *slower* than
 those without AI, yet believed they were 20% faster.
 
 **This skill is for when you need to actually learn**, not just ship:
@@ -36,6 +36,31 @@ those without AI, yet believed they were 20% faster.
 - Preparing to contribute to open source
 - Understanding legacy code before refactoring
 - Building confidence before code review
+
+## Battle-Tested
+
+Tested on a popular open-source project (5M+ monthly downloads, large TypeScript monorepo):
+
+> "I needed to contribute to a mature codebase with high quality standards.
+> Instead of letting Claude write code I wouldn't understand, I used
+> learn-codebase to actually learn the upload architecture. It asked me to
+> predict how things worked before showing me, caught when I was confused
+> about AbortController, and helped me build a mental model of the three-layer
+> stack. By the end, I could trace the full upload flow in my own words.
+> Now I'm ready to implement, not just vibe."
+
+**Session stats:** 30 minutes → 2 concepts moved from 🔴 to 🟡, 1 aha moment captured,
+full architecture traced independently.
+
+### What It Looks Like in Practice
+
+| Scenario | Regular Claude Code | learn-codebase |
+|----------|---------------------|----------------|
+| "How does upload work?" | Shows full code dump | "What do you *expect* `upload()` to return?" |
+| User doesn't know AbortController | Assumes knowledge or over-explains | Detects gap, explains simply, returns to questions |
+| Complex architecture | "Here are 5 files to read" | "Conceptually it's three layers: UI, Model, Services" |
+| Session end | "Let me know if you need anything else" | "Here are 4 concrete options for next steps" |
+| Next session | Starts fresh | Reads journal: "Last time you explored upload flow..." |
 
 ## How It Works
 
@@ -71,12 +96,6 @@ Start a learning session:
 ```
 /learn-codebase
 ```
-
-Or let Claude detect learning intent:
-- "teach me about this codebase"
-- "help me understand the auth system"
-- "I need to learn how this works before contributing"
-- "quiz me on what I learned"
 
 ## Example Session
 
