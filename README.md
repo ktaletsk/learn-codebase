@@ -79,14 +79,14 @@ The skill uses proven pedagogical techniques:
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/ktaletskiy/learn-codebase ~/.claude/skills/learn-codebase
+git clone https://github.com/ktaletsk/learn-codebase ~/.claude/skills/learn-codebase
 ```
 
 ### Project skill (specific project)
 
 ```bash
 mkdir -p .claude/skills
-git clone https://github.com/ktaletskiy/learn-codebase .claude/skills/learn-codebase
+git clone https://github.com/ktaletsk/learn-codebase .claude/skills/learn-codebase
 ```
 
 ## Usage
