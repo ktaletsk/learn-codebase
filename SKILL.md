@@ -23,6 +23,36 @@ and active recall—not to simply answer questions or generate code.
 **Find their angle.** Discover what aspects genuinely interest the learner.
 **Keep it concise.** Short responses, more exchanges. Don't lecture.
 
+## Using AskUserQuestion Tool
+
+Use the `AskUserQuestion` tool for structured choices. It renders a nice multiple-choice UI in the terminal, making interactions smoother.
+
+**When to use it:**
+- Interest discovery (goal, learning style)
+- Session focus selection
+- Quiz questions with discrete answers
+- Session end options (continue, pause, switch topics)
+- Difficulty calibration ("Was that too easy / just right / too hard?")
+
+**Example usage for session start:**
+```
+AskUserQuestion with:
+- question: "What's your goal with this codebase?"
+- options: ["Contributing features", "Fixing bugs", "Code review", "General exploration"]
+```
+
+**Example for session end:**
+```
+AskUserQuestion with:
+- question: "Where to next?"
+- options: ["Continue with [topic]", "Switch to [related topic]", "Take a quiz", "Pause and save progress"]
+```
+
+**When NOT to use it:**
+- Open-ended questions requiring explanation
+- Code prediction questions (learner should type their thinking)
+- Follow-up probing questions
+
 ## Session Start Protocol
 
 ### 1. Check for Learning Journal
@@ -57,32 +87,40 @@ For new learners, run the Interest Discovery protocol (see below).
 
 ### 3. Confirm Today's Focus
 
-Never assume. Ask what they want to accomplish this session:
-- Continue previous exploration?
-- Start a new area?
-- Review and consolidate?
-- Prepare for a specific task (bug fix, feature, PR review)?
+Never assume. Use AskUserQuestion to confirm session focus:
+```
+AskUserQuestion with:
+- question: "What do you want to focus on today?"
+- options: ["Continue with [previous topic]", "Explore something new", "Review and consolidate", "Prepare for a specific task"]
+```
 
 ## Interest Discovery Protocol
 
 When starting fresh or when the learner seems uncertain, discover their angle:
 
-### Elicitation Questions (pick 2-3)
+### Elicitation Questions
 
-1. **Role-based**: "What's your goal with this codebase? Contributing features, 
-   fixing bugs, reviewing PRs, or something else?"
+Use AskUserQuestion for structured choices, then follow up with open questions:
 
-2. **Curiosity-based**: "Looking at this codebase structure, what catches your 
-   eye? What are you most curious about?"
+1. **Role-based** (use AskUserQuestion):
+```
+AskUserQuestion with:
+- question: "What's your goal with this codebase?"
+- options: ["Contributing features", "Fixing bugs", "Code review", "General exploration"]
+```
 
-3. **Connection-based**: "Does this remind you of other codebases you've worked 
-   with? What's familiar, what's surprising?"
+2. **Curiosity-based** (open question, don't use tool):
+   "Looking at this codebase structure, what catches your eye?"
 
-4. **Task-based**: "Is there a specific task you need to accomplish? Sometimes 
-   the best way to learn is through a real goal."
+3. **Task-based** (open question):
+   "Is there a specific task you need to accomplish?"
 
-5. **Knowledge-based**: "What's your familiarity with [framework/pattern visible 
-   in codebase]? That helps me calibrate where to start."
+4. **Knowledge-based** (use AskUserQuestion if applicable):
+```
+AskUserQuestion with:
+- question: "What's your familiarity with [framework]?"
+- options: ["Never used it", "Used it a bit", "Comfortable with basics", "Very experienced"]
+```
 
 ### Record Their Angle
 
@@ -245,19 +283,19 @@ Log review dates in the journal:
 ## Session End Protocol
 
 1. **Summarize progress**:
-   "Today you explored [X], moved [concept] from Learning to Confident, and 
+   "Today you explored [X], moved [concept] from Learning to Confident, and
    opened questions about [Y]."
 
-2. **Preview next steps**:
-   "Good next areas would be [A] (builds on what you learned) or [B] (addresses 
-   your question about Y)."
-
-3. **Commit journal updates**:
+2. **Commit journal updates**:
    Write all changes to the project's `.claude/learning-journal.md`.
+   Announce: "Progress saved to your learning journal."
 
-4. **Optional: Generate quiz**:
-   If session was content-heavy, offer: "Want me to generate 3-5 review 
-   questions you can use to test yourself later?"
+3. **Offer next steps** (use AskUserQuestion):
+```
+AskUserQuestion with:
+- question: "Where to next?"
+- options: ["Continue with [related topic]", "Take a quiz on today's material", "Pause here", "Explore something different"]
+```
 
 ## Exploring Code (Read-Only Mode)
 
