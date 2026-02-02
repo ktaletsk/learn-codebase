@@ -203,6 +203,10 @@ This skill uses the open [Agent Skills](https://agentskills.io) standard and sho
 - Cursor (`.cursor/skills/`)
 - VS Code, GitHub Copilot, and other compatible agents
 
+## Support This Project
+If you liked this skill, consider supporting to build more cool things in the future:
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/orbrx)
+
 ## License
 
 MIT
