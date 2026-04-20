@@ -30,6 +30,8 @@ What happens next:
 - it keeps a learning journal in `.claude/learning-journal.md` that tracks what you confidently know vs. what you're still bluffing
 - it helps you build a mental model that survives after the chat ends
 
+> **Did it click?** If this helped you actually understand a codebase, [share your story](https://github.com/ktaletsk/learn-codebase/issues/new?title=Story:+&labels=show+%26+tell&body=What+codebase+were+you+learning%3F%0AWhat+clicked+that+hadn%27t+before%3F%0AAnything+surprising+about+the+experience%3F) — and [star the repo](https://github.com/ktaletsk/learn-codebase) if you found it useful.
+
 ## Who This Is For
 
 **Great fit for:**
