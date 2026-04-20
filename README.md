@@ -4,17 +4,56 @@
 > through questioning and active recall — because on mature projects, 
 > understanding matters more than speed.
 
-[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://code.claude.com/docs/en/skills)
+[![AI Agent Skill](https://img.shields.io/badge/AI%20Agent-Skill-blueviolet)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+For onboarding to a large repo, preparing a PR, or working on legacy code without pretending you understand it.
+
+## Try It in 2 Minutes
+
+1. Install the skill with [`npx skills`](https://www.npmjs.com/package/skills) (see [Installation](#installation) for options)
+2. Open any project you want to understand
+3. Start a session with `/learn-codebase`
+
+Example (install once for all projects, then open a repo):
+
+```bash
+npx skills add ktaletsk/learn-codebase -g
+cd /path/to/repo-you-want-to-learn
+# then in your AI agent:
+/learn-codebase
+```
+
+What happens next:
+- it asks what you're trying to learn
+- it makes you predict before revealing answers, so you can't skim past a gap
+- it keeps a learning journal in `.claude/learning-journal.md` that tracks what you confidently know vs. what you're still bluffing
+- it helps you build a mental model that survives after the chat ends
+
+## Who This Is For
+
+**Great fit for:**
+- engineers onboarding to an unfamiliar or mature codebase
+- open source contributors preparing their first meaningful PR
+- developers and students who want to understand code, not just generate it
+- people debugging or refactoring systems they did not write
+- anyone willing to say "I don't actually know" out loud instead of nodding along
+
+**Probably not for:**
+- greenfield prototyping where speed matters more than depth
+- "just give me the patch" workflows
+- people who want AI to answer immediately without pushback
+- anyone who wants the feeling of understanding without the work of it
 
 ## Why This Exists
 
-AI coding tools make it easy to generate code without understanding it. 
-That works for greenfield projects. But when you're joining a mature codebase 
-with high quality standards, "it works" isn't enough — you need to understand 
-*why* it works.
+AI coding tools make it easy to ship code you don't understand — and, worse,
+easy to *feel* like you understand it. That works for greenfield projects.
+On a mature codebase with real quality standards, "it works on my machine"
+is how you write a PR you can't defend in review.
 
-This skill flips the AI interaction model:
+This skill is the friction you opted out of when you started vibe-coding.
+It flips the default AI interaction model:
 
 | | Regular AI Coding | learn-codebase |
 |---|---|---|
@@ -27,40 +66,61 @@ This skill flips the AI interaction model:
 ## The Problem
 
 You know that feeling after heavy AI-assisted coding — like swimming with fins,
-then taking them off? The skill atrophy is real. Research backs this up: a 2025
-study found developers using AI on familiar codebases were 19% *slower* than
-those without AI, yet believed they were 20% faster.
+then taking them off? The skill atrophy is real, but that's the smaller problem.
+The bigger one is the gap between what you think you know and what you can
+actually defend.
 
-**This skill is for when you need to actually learn**, not just ship:
+A 2025 study found developers using AI on familiar codebases were 19% *slower*
+than those without AI, yet believed they were 20% faster. That 39-point delta
+is the cost of not being honest with yourself.
+
+**This skill is for when you need to actually learn**, not just feel productive:
 - Onboarding to a new team's codebase
 - Preparing to contribute to open source
 - Understanding legacy code before refactoring
-- Building confidence before code review
+- Building confidence before code review — the earned kind, not the vibes kind
 
 ## Battle-Tested
 
-Tested on a popular open-source project (5M+ monthly downloads, large TypeScript monorepo):
+Tested on a popular open-source project (5M+ monthly downloads, large TypeScript monorepo).
 
-> "I needed to contribute to a mature codebase with high quality standards.
-> Instead of letting Claude write code I wouldn't understand, I used
-> learn-codebase to actually learn the upload architecture. It asked me to
-> predict how things worked before showing me, caught when I was confused
-> about AbortController, and helped me build a mental model of the three-layer
-> stack. By the end, I could trace the full upload flow in my own words.
-> Now I'm ready to implement, not just vibe."
+**Starting point:** needed to contribute to the upload flow, but did not yet have a reliable mental model of the architecture.
 
-**Session stats:** 30 minutes → 2 concepts moved from 🔴 to 🟡, 1 aha moment captured,
-full architecture traced independently.
+**What the skill did:**
+- asked for predictions before showing code
+- surfaced a misunderstanding around `AbortController`
+- kept the discussion at the architecture level before diving into files
+- recorded progress in the learning journal for the next session
+
+**Result after ~30 minutes:**
+- 2 concepts moved from 🔴 to 🟡
+- 1 aha moment captured
+- full upload flow traced independently in the learner's own words
+- confidence shifted from "I can maybe poke at this" to "I can implement without faking understanding"
 
 ### What It Looks Like in Practice
 
-| Scenario | Regular Claude Code | learn-codebase |
+| Scenario | Regular AI agent | learn-codebase |
 |----------|---------------------|----------------|
 | "How does upload work?" | Shows full code dump | "What do you *expect* `upload()` to return?" |
 | User doesn't know AbortController | Assumes knowledge or over-explains | Detects gap, explains simply, returns to questions |
 | Complex architecture | "Here are 5 files to read" | "Conceptually it's three layers: UI, Model, Services" |
 | Session end | "Let me know if you need anything else" | "Here are 4 concrete options for next steps" |
 | Next session | Starts fresh | Reads journal: "Last time you explored upload flow..." |
+
+## Why not just use your agent the usual way?
+
+Most coding agents are tuned to **finish the task**: ship the answer, unblock you, move on. This skill is tuned to **leave you able to explain what you shipped** — different objective, different friction. You still use the same agent; you add a mode that resists false fluency.
+
+| | Generic coding agent | learn-codebase |
+|---|---|---|
+| Default behavior | Answers quickly | Pushes you to think first |
+| Main optimization | Task completion | Mental model formation |
+| During confusion | Tends to smooth over it | Uses confusion as a teaching signal |
+| Across sessions | Often starts fresh | Compounds understanding in a journal |
+| Long-term effect | Faster now, often shallower later | Slower now, more independent later |
+
+If you already know the repo and just need a patch fast, use the normal agent flow. This skill is for the part before that, when false confidence is expensive — the stage where you can still admit "I don't know yet" before it ossifies into "I'd better not ask."
 
 ## How It Works
 
@@ -75,14 +135,36 @@ The skill uses proven pedagogical techniques:
 
 ## Installation
 
-### Personal skill (all projects)
+The default path is the **Skills CLI** (`npx skills`): it pulls this repo from GitHub and installs into the right agent skill directories for Cursor and many other AI coding agents. You need [Node.js](https://nodejs.org/) so `npx` is available.
+
+### Recommended: `npx skills`
+
+**All projects (global / user-level):**
+
+```bash
+npx skills add ktaletsk/learn-codebase -g
+```
+
+**This repository only (from inside the project):**
+
+```bash
+npx skills add ktaletsk/learn-codebase
+```
+
+Use `-a <agent>` to target specific agents (e.g. `-a cursor`), or run without it and follow the prompts. To update later: `npx skills update` (add `-g` for global installs). More skills: [skills.sh](https://skills.sh/).
+
+### Manual: `git clone`
+
+If you prefer to place the skill yourself:
+
+**Personal skill (all projects)**
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/ktaletsk/learn-codebase ~/.claude/skills/learn-codebase
 ```
 
-### Project skill (specific project)
+**Project skill (specific project)**
 
 ```bash
 mkdir -p .claude/skills
@@ -97,12 +179,18 @@ Start a learning session:
 /learn-codebase
 ```
 
+Helpful first prompts:
+- "Help me understand the architecture before I touch anything"
+- "I want to prepare a PR in this part of the repo, but I don't want to fake it in review"
+- "Quiz me as we go, don't just explain — call me out when I hand-wave"
+- "I need to understand this legacy module well enough to refactor it without guessing"
+
 ## Example Session
 
 ```
 You: /learn-codebase
 
-Claude: I don't see a learning journal yet—let's set one up.
+Agent: I don't see a learning journal yet—let's set one up.
 
 What's your goal with this codebase? Are you:
 - Contributing new features
@@ -112,23 +200,23 @@ What's your goal with this codebase? Are you:
 
 You: I want to contribute to the file browser module
 
-Claude: Good, concrete goal. Before we dive in, what's your familiarity 
+Agent: Good, concrete goal. Before we dive in, what's your familiarity 
 with the overall architecture? Have you worked with this codebase before?
 
 You: I know it's TypeScript and uses Lumino widgets, but I'm new to the code
 
-Claude: Perfect starting point. Looking at the directory structure, 
+Agent: Perfect starting point. Looking at the directory structure, 
 where do you *expect* file browser code to live?
 
 You: Maybe `packages/filebrowser` or something like that?
 
-Claude: Good instinct — it's actually `packages/filebrowser-extension` 
+Agent: Good instinct — it's actually `packages/filebrowser-extension` 
 and `packages/filebrowser`. Before I show you the difference, why do 
 you think they split it into two packages?
 
 You: Hmm... maybe one is the core logic and one is the JupyterLab plugin?
 
-Claude: 🎯 Exactly. Now let's trace what happens when a user clicks 
+Agent: 🎯 Exactly. Now let's trace what happens when a user clicks 
 "New Folder"...
 ```
 
@@ -187,6 +275,13 @@ This skill improves through real-world usage. After testing, consider contributi
 - New question patterns that worked well → `QUESTION-PATTERNS.md`
 - Edge cases the skill handled poorly → GitHub Issues
 - Domain-specific adaptations → Fork or PR
+- Example journals or anonymized transcripts showing good learning flows
+
+Good first contribution ideas:
+- framework-specific concept primers
+- repo walkthrough examples
+- tighter compatibility notes for other AI agent environments
+- clearer demo transcripts for the README
 
 ## Acknowledgments
 
@@ -198,9 +293,13 @@ Built on research from:
 
 ## Compatibility
 
-This skill uses the open [Agent Skills](https://agentskills.io) standard and should work with:
+This skill uses the open [Agent Skills](https://agentskills.io) standard.
+
+**Tested:**
 - Claude Code (`~/.claude/skills/`)
-- Cursor (`.cursor/skills/`)
+
+**Expected to work with compatible Agent Skills environments, but not fully validated here:**
+- Cursor (`.cursor/skills/`) — `npx skills add` can target Cursor with `-a cursor`
 - VS Code, GitHub Copilot, and other compatible agents
 
 ## Support This Project
