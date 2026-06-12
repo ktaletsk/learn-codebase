@@ -1,4 +1,10 @@
-# learn-codebase
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="logo-light.svg">
+    <img alt="learn-codebase — anti-vibe coding" src="logo-light.svg" width="480">
+  </picture>
+</p>
 
 > **The anti-vibe-coding skill.** A Socratic tutor that teaches you codebases 
 > through questioning and active recall — because on mature projects, 
