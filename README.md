@@ -5,15 +5,14 @@
     <img alt="learn-codebase — anti-vibe coding" src="logo-light.svg" width="480">
   </picture>
 </p>
-<hr>
 <p align="center">
   <strong>The anti-vibe-coding skill.</strong> A Socratic tutor that teaches you codebases
   through questioning and active recall — because on mature projects,
   understanding matters more than speed.
 </p>
-
+<hr>
 <p align="center">
-  <a href="https://skills.sh/ktaletsk/learn-codebase"><img src="https://skills.sh/b/ktaletsk/learn-codebase" alt="skills.sh"></a>
+  <a href="https://skills.sh/ktaletsk/learn-codebase/learn-codebase"><img src="https://skills.sh/b/ktaletsk/learn-codebase" alt="skills.sh"></a>
 </p>
 
 For onboarding to a large repo, preparing a PR, or working on legacy code without pretending you understand it.
