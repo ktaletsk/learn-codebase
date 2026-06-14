@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="learn-codebase icon">
+  <defs><radialGradient id="board" cx="50%" cy="42%" r="75%"><stop offset="0%" stop-color="#26493E"/><stop offset="100%" stop-color="#1B362E"/></radialGradient></defs>
+  <rect x="0" y="0" width="256" height="256" rx="56" fill="url(#board)"/>
+  <g fill="none" stroke="#EDE8DA" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <path d="M 74 76 C 60 76 58 88 58 104 L 58 124 C 58 134 52 138 46 140 C 52 142 58 146 58 156 L 58 176 C 58 192 60 204 74 204"/>
+    <path d="M 182 76 C 196 76 198 88 198 104 L 198 124 C 198 134 204 138 210 140 C 204 142 198 146 198 156 L 198 176 C 198 192 196 204 182 204"/>
+  </g>
+  <path d="M 96 98 C 96 62 110 48 128 48 C 147 48 164 62 164 92 C 164 113 152 123 140 131" fill="none" stroke="#F2B544" stroke-width="19" stroke-linecap="round"/>
+  <circle cx="132" cy="147" r="8.5" fill="#F2B544"/>
+  <circle cx="128" cy="166" r="8.5" fill="#F2B544"/>
+  <rect x="117" y="183" width="22" height="22" rx="4.5" fill="#F2B544"/>
+</svg>
