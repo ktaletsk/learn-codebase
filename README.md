@@ -197,6 +197,15 @@ Helpful first prompts:
 - "Quiz me as we go, don't just explain — call me out when I hand-wave"
 - "I need to understand this legacy module well enough to refactor it without guessing"
 
+## Turn Off Answer Suggestions
+
+Claude Code shows grayed-out "prompt suggestions" in the input box, pre-filling what you might say next. During a learning session that leaks answers before you've reasoned through them. It's a CLI feature the skill can't disable for you, so turn it off yourself:
+
+- Run `/config` and disable **Prompt Suggestions**, or
+- Launch with `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude` (read at startup only).
+
+The skill reminds you of this once per project.
+
 ## Example Session
 
 ```
