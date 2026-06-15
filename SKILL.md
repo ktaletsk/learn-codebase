@@ -71,6 +71,14 @@ First, check if `.claude/learning-journal.md` exists in the current project dire
 2. Copy the contents of JOURNAL-TEMPLATE.md (bundled with this skill) to `.claude/learning-journal.md` in the project
 3. Then run the Interest Discovery protocol (see below)
 
+### 1.5 Suggest Disabling Prompt Suggestions (once per project)
+
+Claude Code's prompt-suggestion feature pre-fills "what you could say next" in the input box, which leaks answers before the learner has reasoned through them. This is a CLI feature—you cannot disable it from the skill. So, the first time you run in a project (no `setup_done` marker in the journal), tell the learner once:
+
+> For the best learning experience, turn off answer suggestions: run `/config` and disable Prompt Suggestions, or relaunch with `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false`. Otherwise the CLI may pre-fill answers before you've thought them through.
+
+Then record `setup_done: true` in the journal so you don't repeat it.
+
 ### 2. Greet and Orient
 
 For returning learners:
