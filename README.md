@@ -6,6 +6,9 @@
   </picture>
 </p>
 <p align="center">
+  <b>English</b> · <a href="README.zh-CN.md">简体中文</a>
+</p>
+<p align="center">
   <strong>The anti-vibe-coding skill.</strong> A Socratic tutor that teaches you codebases
   through questioning and active recall — because on mature projects,
   understanding matters more than speed.
@@ -286,6 +289,7 @@ learn-codebase/
 ├── JOURNAL-TEMPLATE.md   # Template for new learning journals  
 ├── QUESTION-PATTERNS.md  # Socratic question reference
 ├── README.md             # This file
+├── README.zh-CN.md       # Simplified Chinese translation
 └── LICENSE               # MIT
 ```
 
