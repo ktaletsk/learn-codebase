@@ -18,6 +18,10 @@
   <a href="https://skills.sh/ktaletsk/learn-codebase/learn-codebase"><img src="https://skills.sh/b/ktaletsk/learn-codebase" alt="skills.sh"></a>
 </p>
 
+<!-- yarkr:badges:start -->
+[![Indexed on Yarkr](https://api.yarkr.com/functions/v1/api/api/v1/badges/repos/ktaletsk/learn-codebase/version.svg)](https://yarkr.com/arks/ktaletsk/learn-codebase)
+<!-- yarkr:badges:end -->
+
 For onboarding to a large repo, preparing a PR, or working on legacy code without pretending you understand it.
 On mature projects, understanding matters more than speed.
 
@@ -185,6 +189,38 @@ git clone https://github.com/ktaletsk/learn-codebase ~/.claude/skills/learn-code
 mkdir -p .claude/skills
 git clone https://github.com/ktaletsk/learn-codebase .claude/skills/learn-codebase
 ```
+
+<!-- yarkr:install:start -->
+## Install with Yarkr
+
+This repo is indexed on [Yarkr](https://yarkr.com/arks/ktaletsk/learn-codebase) as the ark [ktaletsk/learn-codebase](https://yarkr.com/arks/ktaletsk/learn-codebase), so its skills install into Claude Code, Codex, Cursor and other agent harnesses with one command.
+
+### CLI
+
+Install the whole ark, which Yarkr keeps equal to this repo:
+
+```bash
+npx yarkr-cli sync ktaletsk/learn-codebase
+```
+
+Or add individual skills:
+
+```bash
+npx yarkr-cli add skill:ktaletsk/learn-codebase/learn-codebase
+```
+
+No Node.js? `curl -fsSL https://yarkr.com/install.sh | sh` (macOS, Linux) or `irm https://yarkr.com/install.ps1 | iex` (Windows PowerShell) installs `yarkr` as a standalone binary; then type `yarkr` in place of `npx yarkr-cli`.
+
+### MCP
+
+Connect your agent to the ark over MCP:
+
+```bash
+npx yarkr-cli mcp add ktaletsk/learn-codebase
+```
+
+Or point any MCP client at `https://api.yarkr.com/functions/v1/api/mcp/o/ktaletsk/learn-codebase`.
+<!-- yarkr:install:end -->
 
 ## Usage
 
